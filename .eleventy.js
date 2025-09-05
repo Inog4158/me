@@ -20,7 +20,6 @@ export default function(eleventyConfig) {
             includes: "./_includes",
             output: "./docs/"
         },
-        pathPrefix: "/docs",
         markdownTemplateEngine: "njk",
         htmlTemplateEngine: "njk",
         templateFormats: ["md", "njk", "html"]
