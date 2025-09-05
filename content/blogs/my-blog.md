@@ -1,9 +1,9 @@
 ---
-title: not Welcome to My Blog
+title: Welcome to My Blog
 date: 2025-09-05
 ---
 <p>  
-    Hey there, and welcome!  no
+    Hey there, and welcome!
 </p>  
 <p>  
     I decided to start this blog as a place to share my thoughts, projects, and ideas. Most of it will probably revolve around tech, coding, and the random things I build or experiment with,  
