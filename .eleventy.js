@@ -18,9 +18,9 @@ export default function(eleventyConfig) {
         dir: {
             input: "./content/",
             includes: "./_includes",
-            output: "./generated/"
+            output: "./docs/"
         },
-        pathPrefix: "/generated",
+        pathPrefix: "/docs",
         markdownTemplateEngine: "njk",
         htmlTemplateEngine: "njk",
         templateFormats: ["md", "njk", "html"]
