@@ -7,13 +7,13 @@
 /* ===== Design ===== */
 @font-face {
     font-family: 'Wayfarers';
-    src: url('./assets/fonts/WayfarersToyBoxRegular-gxxER.ttf');
+    src: url('assets/fonts/WayfarersToyBoxRegular-gxxER.ttf');
     font-display: swap;
 }
 
 @font-face {
     font-family: 'BoldPixels';
-    src: url('./assets/fonts/BoldPixels1.4.ttf');
+    src: url('assets/fonts/BoldPixels1.4.ttf');
     font-display: swap;
 }
 
@@ -92,4 +92,9 @@ h2 {
 .text p {
     font-size: 1.5em;
     margin-bottom: 20px;
+}
+
+.date {
+    text-align: center;
+    color: rgb(138, 87, 164);
 }

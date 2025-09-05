@@ -1,0 +1,20 @@
+---
+permalink: index.html
+title: Inog
+layout: base.njk
+---
+
+<div class="welcome">
+  <h2>Welcome to my corner of the web. ♡</h2>
+</div>
+
+<div class="content">
+  {% for post in collections.blogs %}
+    <a class="blog" href="{{ post.url | url }}">
+      <span class="date">{{ post.data.date | ymd }}</span>
+      <h3>{{ post.data.title }}</h3>
+    </a>
+  {% endfor %}
+</div>
+
+<div class="footer"></div>

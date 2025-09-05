@@ -1,0 +1,100 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ===== Design ===== */
+@font-face {
+    font-family: 'Wayfarers';
+    src: url('assets/fonts/WayfarersToyBoxRegular-gxxER.ttf');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BoldPixels';
+    src: url('assets/fonts/BoldPixels1.4.ttf');
+    font-display: swap;
+}
+
+:root {
+    --bg: #212121;
+    --text: #d5d5d5;
+    --muted: #6b7280;
+    --primary: #3b82f6;
+
+    /* Typo */
+    --main-font: 'BoldPixels';
+    --font-size: 1.2em;
+    --radius: 14px;
+}
+
+body {
+    height: 100svh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--main-font), sans-serif;
+    font-size: var(--font-size);
+
+    display: flex;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+h1 {
+    font-size: 100px;
+}
+
+h2 {
+    font-size: 48px;
+}
+
+.container {
+    min-height: 100%;
+    height: fit-content;
+    width: 1000px;
+}
+
+.header {
+    text-align: center;
+    width: 100%;
+}
+
+.welcome {
+    text-align: center;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 80px;
+}
+
+.blog {
+    width: 700px;
+    padding: 5px;
+    cursor: pointer;
+    color: var(--text);
+    text-decoration: none;
+}
+
+.blog:hover {
+    color: rgb(148, 45, 119);
+}
+
+.text {
+    padding: 100px;
+    text-align: start;
+}
+
+.text p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.date {
+    text-align: center;
+    color: rgb(138, 87, 164);
+}
