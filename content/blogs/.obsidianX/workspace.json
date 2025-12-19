@@ -35,8 +35,7 @@
               "title": "two-months-later-habits"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -184,10 +183,11 @@
       "bases:Create new base": false
     }
   },
-  "active": "f80afc774faa3d9c",
+  "active": "101c08d58523458b",
   "lastOpenFiles": [
     "my-blog.md",
     "two-months-later-habits.md",
+    "my-blog.md~",
     "templates/blogpost.md",
     "blogs.11tydata.js~",
     "blogs.11tydata.js",
