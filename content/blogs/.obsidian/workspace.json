@@ -4,25 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "d604e65efefd80ad",
+        "id": "e87013ff29052d27",
         "type": "tabs",
         "children": [
           {
-            "id": "582c801db158082c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "templates/blogpost.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "blogpost"
-            }
-          },
-          {
-            "id": "07bdb3f9c36553fc",
+            "id": "101c08d58523458b",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -33,6 +19,20 @@
               },
               "icon": "lucide-file",
               "title": "my-blog"
+            }
+          },
+          {
+            "id": "f80afc774faa3d9c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "two-months-later-habits.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "two-months-later-habits"
             }
           }
         ],
@@ -184,13 +184,14 @@
       "bases:Create new base": false
     }
   },
-  "active": "07bdb3f9c36553fc",
+  "active": "f80afc774faa3d9c",
   "lastOpenFiles": [
+    "my-blog.md",
+    "two-months-later-habits.md",
+    "templates/blogpost.md",
     "blogs.11tydata.js~",
     "blogs.11tydata.js",
-    "my-blog.md",
     "First Static Blog.md",
-    "templates/blogpost.md",
     "templates"
   ]
 }
