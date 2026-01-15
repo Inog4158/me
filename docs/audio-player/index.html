@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/audio-player.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicons/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg">
+    <title>Inog</title>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Radio Booth</h1>
+    </div>
+    <a class="backArrow hover" href="/index.html"><-</a>
+
+
+    <div class="content">
+
+        <!-- From Uiverse.io by ilkhoeri -->
+        <div class="card">
+            <div class="wrap">
+                <div class="terminal">
+                    <hgroup class="head">
+                        <div class="equalizer-mini" id="eq">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                        <p class="title">Now Playing</p>
+                    </hgroup>
+                    <div class="body">
+                        <pre class="pre">
+                            <code>$&nbsp;</code>
+                            <code>cat&nbsp;</code>
+                            <code class="cmd" data-cmd="/dev/null"></code>
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="radio-wrapper">
+            <div class="radio-input">
+                <label class="label">
+                    <input value="play" name="value-radio" id="play" type="radio"/>
+                    <span class="text">Play</span>
+                </label>
+                <label class="label">
+                    <input value="stop" name="value-radio" id="stop" type="radio"/>
+                    <span class="text">Stop</span>
+                </label>
+                <label class="label">
+                    <input value="reset" name="value-radio" id="reset" type="radio"/>
+                    <span class="text">Reset</span>
+                </label>
+            </div>
+        </div>
+        <!-- From Uiverse.io by chase2k25 -->
+        <div class="fan-speed-knob">
+            <div class="wrapper">
+                <div class="knob-outer">
+                    <div class="knob-base">
+                        <hr class="divider"/>
+                        <hr class="divider"/>
+                        <hr class="divider"/>
+                        <div class="control">
+                            <label for="fan_off"><span class="off">OFF</span></label>
+                            <label for="fan_1"><span>1</span></label>
+                            <label for="fan_2"><span>2</span></label>
+                            <label for="fan_3"><span>3</span></label>
+                            <label for="fan_4"><span>4</span></label>
+                            <label for="fan_5"><span>5</span></label>
+                            <input data-track="off" id="fan_off" name="fan" checked="" type="radio"/>
+                            <input data-track="1" id="fan_1" name="fan" type="radio"/>
+                            <input data-track="2" id="fan_2" name="fan" type="radio"/>
+                            <input data-track="3" id="fan_3" name="fan" type="radio"/>
+                            <input data-track="4" id="fan_4" name="fan" type="radio"/>
+                            <input data-track="5" id="fan_5" name="fan" type="radio"/>
+                            <div class="pointer"><span></span></div>
+                            <div class="marker"><span></span></div>
+                            <div class="knob-middle">
+                                <div class="knob-inner">
+                                    <div class="knob-core">
+                                        <div class="status">
+                                            <div class="off-light"></div>
+                                            <div class="speed-lights">
+                                                <span class="speed-light"></span>
+                                                <span class="speed-light"></span>
+                                                <span class="speed-light"></span>
+                                                <span class="speed-light"></span>
+                                                <span class="speed-light"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <audio id="player"></audio>
+    <script>
+        const audio = document.getElementById("player");
+        const btnPlay = document.getElementById("play");
+        const btnStop = document.getElementById("stop");
+        const btnReset = document.getElementById("reset");
+        const eq = document.getElementById("eq");
+        const cmdName = document.querySelector(".cmd");
+        const tracks = {
+            1: {file: "track1.mp3", name: "Track1"},
+            2: {file: "track2.mp3", name: "Track2"},
+            3: {file: "track3.mp3", name: "Track3"},
+            4: {file: "track4.mp3", name: "Track4"},
+            5: {file: "track5.mp3", name: "Track5"}
+        };
+        let currentTrack = null;
+
+        function resetButtons() {
+            document.querySelectorAll('input[name="value-radio"]').forEach(r => {
+                r.checked = false;
+            });
+        }
+
+        if (audio && eq) {
+            audio.addEventListener("play", () => {
+                eq.classList.add("playing");
+            });
+
+            audio.addEventListener("pause", () => {
+                eq.classList.remove("playing");
+            });
+
+            audio.addEventListener("ended", () => {
+                eq.classList.remove("playing");
+            });
+        }
+
+        btnPlay.addEventListener("click", async () => {
+            if (!currentTrack) {
+                resetButtons();
+                return;
+            }
+
+            try {
+                await audio.play();
+            } catch (e) {
+                console.warn("Audio play blocked:", e);
+            }
+        });
+        btnStop.addEventListener("click", () => {
+            if (!currentTrack) {
+                resetButtons();
+                return;
+            }
+            audio.pause();
+        });
+        btnReset.addEventListener("click", () => {
+            if (!currentTrack) {
+                resetButtons();
+                return;
+            }
+            audio.pause()
+            audio.currentTime = 0;
+        });
+
+        document.querySelectorAll("[data-track]").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const value = btn.dataset.track;
+
+                if (audio.paused || value === "off") {
+                    audio.currentTime = 0;
+                    resetButtons();
+                }
+
+                if (value === "off") {
+                    audio.pause()
+                    currentTrack = null;
+                    cmdName.setAttribute("data-cmd", "/dev/null");
+                    audio.removeAttribute("src");
+                    return;
+                }
+
+                currentTrack = value;
+                cmdName.setAttribute("data-cmd", tracks[value].name);
+                audio.src = "/assets/music/" + tracks[value].file;
+                audio.load();
+            });
+        });
+    </script>
+</div>
+</body>
+</html>

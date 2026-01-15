@@ -1,0 +1,638 @@
+
+/* ===== Music Control ===== */
+
+.radio-wrapper {
+    width: fit-content;
+}
+
+/* From Uiverse.io by m1her */
+.radio-input {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    background-color: black;
+    padding: 4px;
+    border-radius: 10px;
+    z-index: -1;
+    width: fit-content;
+}
+
+.radio-input input {
+    display: none;
+}
+
+.radio-input .label {
+    width: 90px;
+    height: 60px;
+    background: linear-gradient(to bottom, #333333, rgb(36, 35, 35));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    transition: all 0.1s linear;
+    border-top: 1px solid #4e4d4d;
+    background-color: #333333;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0px 17px 5px 1px rgba(0, 0, 0, 0.2);
+}
+
+.label:has(input[type="radio"]:checked) {
+    box-shadow: 0px 17px 5px 1px rgba(0, 0, 0, 0);
+    background: linear-gradient(to bottom, #1d1d1d, #1d1d1d);
+    border-top: none;
+}
+
+.label:first-child {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.label:last-child {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.label::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 103%;
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(
+            to bottom,
+            transparent 10%,
+            transparent,
+            transparent 90%
+    );
+    transition: all 0.1s linear;
+    z-index: -1;
+}
+
+.label:has(input[type="radio"]:checked)::before {
+    background: linear-gradient(
+            to bottom,
+            transparent 10%,
+            #cae2fd63,
+            transparent 90%
+    );
+}
+
+.label .text {
+    color: black;
+    font-size: 15px;
+    line-height: 12px;
+    padding: 0px;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: all 0.1s linear;
+    user-select: none;
+    text-shadow:
+            -1px -1px 1px rgb(224, 224, 224, 0.1),
+            0px 2px 3px rgb(0, 0, 0, 0.3);
+}
+
+.label input[type="radio"]:checked + .text {
+    color: rgb(202, 226, 253);
+    text-shadow: 0px 0px 12px #cae2fd;
+}
+
+
+/* From Uiverse.io by chase2k25 */
+.wrapper {
+    position: relative;
+    font-family: monospace;
+}
+
+.knob-outer {
+    user-select: none;
+    position: relative;
+    width: 230px;
+    height: 230px;
+    border-radius: 100%;
+    box-shadow:
+            10px 10px 10px rgba(202, 202, 202, 0.2) inset,
+            -10px -10px 10px rgba(151, 151, 151, 0.2) inset;
+    background-color: transparent;
+}
+
+.knob-base {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 220px;
+    height: 220px;
+    margin: -110px 0 0 -110px;
+    border-radius: 100%;
+    box-shadow:
+            inset 0 3px 10px rgba(0, 0, 0, 0.6),
+            0 2px 20px rgba(255, 255, 255, 0.1) inset;
+    background: radial-gradient(ellipse at center, #333 0%, #111 100%);
+}
+
+.knob-middle {
+    z-index: 4;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 140px;
+    height: 140px;
+    margin: -70px 0 0 -70px;
+    border-radius: 100%;
+    box-shadow:
+            inset 0 2px 2px rgba(255, 255, 255, 0.2),
+            0 3px 13px rgba(0, 0, 0, 0.85);
+    background: #111;
+}
+
+.knob-inner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 120px;
+    height: 120px;
+    margin: -60px 0 0 -60px;
+    border-radius: 100%;
+    background: #222;
+}
+
+.knob-core {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    height: 100px;
+    margin: -50px 0 0 -50px;
+    border-radius: 100%;
+    box-shadow:
+            inset 0 2px 3px rgba(255, 255, 255, 0.3),
+            0 8px 20px rgba(0, 0, 0, 0.9);
+    background: #333;
+}
+
+.control {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.knob-base .control label {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 70px;
+    margin-top: -35px;
+    transform-origin: 0% 50%;
+    cursor: pointer;
+}
+
+.knob-base .control label span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 70px;
+    text-align: center;
+    color: #0f0;
+    text-shadow: 0 0 5px #0f0;
+}
+
+.knob-base .control label:nth-child(1) {
+    transform: rotate(-90deg);
+}
+.knob-base .control label:nth-child(1) span {
+    transform: rotate(90deg);
+}
+.knob-base .control label:nth-child(2) {
+    transform: rotate(-30deg);
+}
+.knob-base .control label:nth-child(2) span {
+    transform: rotate(30deg);
+}
+.knob-base .control label:nth-child(3) {
+    transform: rotate(30deg);
+}
+.knob-base .control label:nth-child(3) span {
+    transform: rotate(-30deg);
+}
+.knob-base .control label:nth-child(4) {
+    transform: rotate(90deg);
+}
+.knob-base .control label:nth-child(4) span {
+    transform: rotate(-90deg);
+}
+.knob-base .control label:nth-child(5) {
+    transform: rotate(150deg);
+}
+.knob-base .control label:nth-child(5) span {
+    transform: rotate(-150deg);
+}
+.knob-base .control label:nth-child(6) {
+    transform: rotate(210deg);
+}
+.knob-base .control label:nth-child(6) span {
+    transform: rotate(-210deg);
+}
+
+.knob-base .control input {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.pointer {
+    z-index: 1;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50%;
+    height: 100px;
+    margin-top: -50px;
+    transform-origin: 0% 50%;
+    transition: transform 0.5s;
+}
+
+.pointer span {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(
+            ellipse at center,
+            rgba(0, 255, 0, 0.8) 0%,
+            rgba(0, 255, 0, 0.2) 42%,
+            rgba(0, 255, 0, 0) 72%
+    );
+}
+
+.marker {
+    z-index: 6;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 50%;
+    height: 12px;
+    margin-top: -6px;
+    transform-origin: 0% 50%;
+    transition: transform 0.5s;
+}
+
+.marker span {
+    position: absolute;
+    top: 0;
+    left: 30px;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background: #0f0;
+    box-shadow: 0 0 10px #0f0;
+}
+
+.status {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+}
+
+.off-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #333;
+    margin-bottom: 8px;
+    transition:
+            background-color 0.3s,
+            box-shadow 0.3s;
+}
+
+.speed-lights {
+    display: flex;
+}
+
+.speed-light {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #333;
+    margin: 0 3px;
+    transition:
+            opacity 0.3s,
+            background-color 0.3s,
+            box-shadow 0.3s;
+}
+
+/* Rotations and Indicator States */
+#fan_off:checked ~ .pointer {
+    transform: rotate(-90deg);
+}
+#fan_off:checked ~ .off {
+    color: rgb(255, 72, 0);
+    text-shadow: 0 0 5px rgb(255, 81, 0);
+}
+#fan_off:checked ~ .pointer span {
+    background: radial-gradient(
+            ellipse at center,
+            rgba(255, 97, 77, 0.8) 0%,
+            rgba(255, 94, 0, 0.2) 42%,
+            rgba(255, 72, 0, 0) 72%
+    );
+}
+#fan_1:checked ~ .pointer {
+    transform: rotate(-30deg);
+}
+#fan_2:checked ~ .pointer {
+    transform: rotate(30deg);
+}
+#fan_3:checked ~ .pointer {
+    transform: rotate(90deg);
+}
+#fan_4:checked ~ .pointer {
+    transform: rotate(150deg);
+}
+#fan_5:checked ~ .pointer {
+    transform: rotate(210deg);
+}
+
+#fan_off:checked ~ .marker {
+    transform: rotate(-90deg);
+}
+#fan_off:checked ~ .marker span {
+    background: rgb(255, 60, 0);
+    box-shadow: 0 0 10px rgb(255, 60, 0);
+}
+#fan_1:checked ~ .marker {
+    transform: rotate(-30deg);
+}
+#fan_2:checked ~ .marker {
+    transform: rotate(30deg);
+}
+#fan_3:checked ~ .marker {
+    transform: rotate(90deg);
+}
+#fan_4:checked ~ .marker {
+    transform: rotate(150deg);
+}
+#fan_5:checked ~ .marker {
+    transform: rotate(210deg);
+}
+
+#fan_off:checked ~ .knob-middle .status .speed-lights .speed-light {
+    opacity: 0;
+}
+
+.fan:not(#fan_off):checked ~ .knob-middle .status .off-light {
+    background-color: #333;
+    box-shadow: none;
+}
+
+/* Lines for visual separation */
+.knob-base hr.divider {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 0;
+    margin-top: -1px;
+    border-width: 1px 0;
+    border-style: solid;
+    border-top-color: #3c3d3f;
+    border-bottom-color: #666769;
+}
+
+.knob-base hr.divider:nth-child(1) {
+    transform: rotate(-60deg);
+}
+.knob-base hr.divider:nth-child(2) {
+    transform: rotate(60deg);
+}
+
+
+
+/* From Uiverse.io by ilkhoeri */
+.card {
+    padding: 1rem;
+    overflow: hidden;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    min-width: 344px;
+}
+.wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    z-index: 10;
+    border: 0.5px solid #525252;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.terminal {
+    display: flex;
+    flex-direction: column;
+
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+}
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    min-height: 40px;
+    padding-inline: 12px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background-color: #202425;
+}
+.title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 2.5rem;
+    user-select: none;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #8e8e8e;
+}
+.title > svg {
+    height: 18px;
+    width: 18px;
+    margin-top: 2px;
+    color: #006adc;
+}
+.copy_toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+    border: 0.65px solid #c1c2c5;
+    margin-left: auto;
+    border-radius: 6px;
+    background-color: #202425;
+    color: #8e8e8e;
+    cursor: pointer;
+}
+.copy_toggle > svg {
+    width: 20px;
+    height: 20px;
+}
+.copy_toggle:active > svg > path,
+.copy_toggle:focus-within > svg > path {
+    animation: clipboard-check 500ms linear forwards;
+}
+.body {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    overflow-x: auto;
+    padding: 1rem;
+    line-height: 19px;
+    color: white;
+    background-color: black;
+    white-space: nowrap;
+}
+.pre {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-wrap: nowrap;
+    white-space: pre;
+    background-color: transparent;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.pre code:nth-child(1) {
+    color: #575757;
+}
+.pre code:nth-child(2) {
+    color: #e34ba9;
+}
+.cmd {
+    height: 19px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.cmd::before {
+    content: attr(data-cmd);
+    position: relative;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: transparent;
+    animation: inputs 8s steps(22) infinite;
+}
+.cmd::after {
+    content: "";
+    position: relative;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    background-color: transparent;
+    border-right: 0.15em solid #e34ba9;
+    animation: cursor 0.5s step-end infinite alternate, blinking 0.5s infinite;
+}
+
+@keyframes blinking {
+    20%,
+    80% {
+        transform: scaleY(1);
+    }
+    50% {
+        transform: scaleY(0);
+    }
+}
+@keyframes cursor {
+    50% {
+        border-right-color: transparent;
+    }
+}
+@keyframes inputs {
+    0%,
+    100% {
+        width: 0;
+    }
+    10%,
+    90% {
+        width: 58px;
+    }
+    30%,
+    70% {
+        width: 215px;
+        max-width: max-content;
+    }
+}
+@keyframes clipboard-check {
+    100% {
+        color: #fff;
+        d: path(
+                "M 9 5 H 7 a 2 2 0 0 0 -2 2 v 12 a 2 2 0 0 0 2 2 h 10 a 2 2 0 0 0 2 -2 V 7 a 2 2 0 0 0 -2 -2 h -2 M 9 5 a 2 2 0 0 0 2 2 h 2 a 2 2 0 0 0 2 -2 M 9 5 a 2 2 0 0 1 2 -2 h 2 a 2 2 0 0 1 2 2 m -6 9 l 2 2 l 4 -4"
+        );
+    }
+}
+
+
+/* Mini Equalizer Animation */
+.equalizer-mini {
+    display: flex;
+    gap: 2px;
+    align-items: flex-end;
+    height: 12px;
+    opacity: 0.2;
+    transition: opacity 0.3s;
+}
+
+.equalizer-mini .bar {
+    width: 3px;
+    background: #00ff00;
+    height: 20%;
+}
+
+.equalizer-mini.playing {
+    opacity: 1;
+}
+
+.equalizer-mini.playing .bar:nth-child(1) {
+    animation: eq-bounce 0.8s infinite ease-in-out;
+}
+.equalizer-mini.playing .bar:nth-child(2) {
+    animation: eq-bounce 1.1s infinite ease-in-out 0.2s;
+}
+.equalizer-mini.playing .bar:nth-child(3) {
+    animation: eq-bounce 0.9s infinite ease-in-out 0.4s;
+}
+
+@keyframes eq-bounce {
+    0%,
+    100% {
+        height: 20%;
+    }
+    50% {
+        height: 100%;
+        background: #ffb700;
+    }
+}
