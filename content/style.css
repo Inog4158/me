@@ -85,7 +85,7 @@ h2 {
 }
 
 .text {
-    padding: 100px;
+    padding: 0 100px;
     text-align: start;
 }
 
@@ -97,4 +97,15 @@ h2 {
 .date {
     text-align: center;
     color: rgb(138, 87, 164);
+}
+
+.backArrow {
+    color: var(--text);
+    cursor: pointer;
+    font-size: 3em;
+    text-decoration: none;
+}
+
+.hover:hover {
+    color: rgb(148, 45, 119);
 }
