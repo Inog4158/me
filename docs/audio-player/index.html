@@ -174,11 +174,7 @@
         document.querySelectorAll("[data-track]").forEach(btn => {
             btn.addEventListener("click", () => {
                 const value = btn.dataset.track;
-
-                if (audio.paused || value === "off") {
-                    audio.currentTime = 0;
-                    resetButtons();
-                }
+                resetButtons();
 
                 if (value === "off") {
                     audio.pause()
