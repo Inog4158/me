@@ -92,9 +92,13 @@ h2 {
     text-align: start;
 }
 
-.text p {
+.text p, .text ul {
     font-size: 1.5em;
     margin-bottom: 20px;
+}
+
+.text li {
+    margin-left: 75px;
 }
 
 .date {
