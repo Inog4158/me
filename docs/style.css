@@ -30,6 +30,7 @@
 }
 
 body {
+    overscroll-behavior: contain;
     height: 100svh;
     background: var(--bg);
     background-image: url('./assets/images/background_mountains.jpg');
