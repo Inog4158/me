@@ -115,6 +115,7 @@ h2 {
     cursor: pointer;
     font-size: 3em;
     text-decoration: none;
+    margin-left: 30px;
 }
 
 .hover:hover {
