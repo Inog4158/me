@@ -2,7 +2,6 @@ export default function(eleventyConfig) {
     eleventyConfig.ignores.add("content/blogs/templates/**");
     eleventyConfig.addPassthroughCopy("content/assets");
     eleventyConfig.addPassthroughCopy("content/style.css");
-    eleventyConfig.addPassthroughCopy("content/audio-player.html");
     eleventyConfig.addPassthroughCopy("content/audio-player.css");
 
 
