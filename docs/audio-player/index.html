@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="/audio-player.css">
-    <link rel="icon" type="image/x-icon" href="/assets/favicons/favicon.ico">
-    <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg">
+    <link rel="stylesheet" href="../blog/style.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="image/x-icon" href="../assets/favicons/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicons/favicon.svg">
     <title>Inog</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
     <div class="header">
         <h1>Radio Booth</h1>
     </div>
-    <a class="backArrow hover" href="/index.html"><-</a>
+    <a class="backArrow hover" href="../"><-</a>
 
 
     <div class="content">
@@ -186,7 +186,7 @@
 
                 currentTrack = value;
                 cmdName.setAttribute("data-cmd", tracks[value].name);
-                audio.src = "/assets/music/" + tracks[value].file;
+                audio.src = "../assets/music/" + tracks[value].file;
                 audio.load();
             });
         });
