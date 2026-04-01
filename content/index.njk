@@ -10,7 +10,7 @@ layout: base.njk
 
 <div class="content">
   {% for post in collections.blogs %}
-    <a class="blog" href="{{ post.url | url }}">
+    <a class="blog" href=".{{ post.url | url }}">
       <span class="date">{{ post.data.date | ymd }}</span>
       <h3>{{ post.data.title }}</h3>
     </a>
