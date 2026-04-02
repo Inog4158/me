@@ -7,7 +7,7 @@ layout: base.njk
 <div class="welcome">
   <h2>Welcome to my corner of the web. ♡</h2>
 </div>
-
+<a class="backArrow hover" href="../"><-</a>
 <div class="content">
   {% for post in collections.blogs %}
     <a class="blog" href=".{{ post.url | url }}">
