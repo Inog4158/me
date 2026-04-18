@@ -149,7 +149,7 @@
         const cx = CAT_SIZE / 2;
         ctx.translate(cx, cx);
         if (shouldMirror) ctx.scale(-1, 1);
-        if (st === STATE.WALK) {
+        if (st === STATE.WALK) {2
             ctx.rotate(walkRotation);
         }
         ctx.translate(-cx, -cx);
@@ -159,10 +159,10 @@
         if (st === STATE.SLEEP && zOpacity > 0) {
             ctx.globalAlpha = zOpacity;
             ctx.fillStyle = "#7090c8";
-            ctx.font = "bold 11px monospace";
+            ctx.font = "bold 64px monospace";
             ctx.fillText("z", CAT_SIZE / 2 + 17, CAT_SIZE / 2 - 6 + zY);
-            ctx.font = "bold 8px monospace";
-            ctx.fillText("z", CAT_SIZE / 2 + 24, CAT_SIZE / 2 - 16 + zY);
+            ctx.font = "bold 48px monospace";
+            ctx.fillText("z", CAT_SIZE / 2 + 24, CAT_SIZE / 2 - 48 + zY);
             ctx.globalAlpha = 1;
         }
 
